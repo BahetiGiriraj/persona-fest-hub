@@ -32,15 +32,15 @@ interface MemberCardProps {
   name: string;
   role: string;
   initials: string;
-  gradient: string;
+  bgColor: string;
 }
 
-const MemberCard = ({ name, role, initials, gradient }: MemberCardProps) => (
-  <div className="glass-card p-6 text-center group hover:scale-105 transition-all duration-500">
-    <div className={`w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
+const MemberCard = ({ name, role, initials, bgColor }: MemberCardProps) => (
+  <div className="card-professional p-6 text-center hover:shadow-lg transition-all duration-300">
+    <div className={`w-20 h-20 mx-auto mb-4 rounded-full ${bgColor} flex items-center justify-center`}>
       <span className="font-display font-bold text-xl text-white">{initials}</span>
     </div>
-    <h3 className="font-display font-semibold text-lg">{name}</h3>
+    <h3 className="font-display font-semibold text-lg text-foreground">{name}</h3>
     <p className="text-muted-foreground text-sm">{role}</p>
   </div>
 );
@@ -50,26 +50,29 @@ const Committee = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24">
+      <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 animated-gradient-bg opacity-30" />
+        <section className="py-20 bg-primary relative">
+          <div className="absolute inset-0 opacity-5 pattern-dots" />
           <div className="relative section-container text-center">
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              Meet the <span className="gradient-text">Team</span>
+            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4 text-white">
+              Meet the Team
             </h1>
-            <p className="text-xl text-muted-foreground max-w-xl mx-auto">
+            <p className="text-lg text-white/80 max-w-xl mx-auto">
               The passionate individuals behind Persona Fest 2026
             </p>
+            <div className="w-20 h-1 bg-accent mx-auto mt-6" />
           </div>
         </section>
 
         {/* Faculty Coordinators */}
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="section-container">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
-              Faculty <span className="gradient-text">Coordinators</span>
-            </h2>
+            <div className="section-header">
+              <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Guidance</p>
+              <h2 className="section-title">Faculty Coordinators</h2>
+              <div className="divider" />
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {facultyCoordinators.map((member) => (
                 <MemberCard
@@ -77,7 +80,7 @@ const Committee = () => {
                   name={member.name}
                   role={member.role}
                   initials={member.initials}
-                  gradient="from-amber-500 to-orange-500"
+                  bgColor="bg-primary"
                 />
               ))}
             </div>
@@ -85,11 +88,13 @@ const Committee = () => {
         </section>
 
         {/* Core Committee */}
-        <section className="py-16 bg-card/30">
+        <section className="py-16 bg-muted">
           <div className="section-container">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
-              Core <span className="gradient-text">Committee</span>
-            </h2>
+            <div className="section-header">
+              <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Leadership</p>
+              <h2 className="section-title">Core Committee</h2>
+              <div className="divider" />
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {coreCommittee.map((member) => (
                 <MemberCard
@@ -97,7 +102,7 @@ const Committee = () => {
                   name={member.name}
                   role={member.role}
                   initials={member.initials}
-                  gradient="from-primary to-secondary"
+                  bgColor="bg-accent"
                 />
               ))}
             </div>
@@ -105,11 +110,13 @@ const Committee = () => {
         </section>
 
         {/* Student Leads */}
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="section-container">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
-              Student <span className="gradient-text">Leads</span>
-            </h2>
+            <div className="section-header">
+              <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Execution</p>
+              <h2 className="section-title">Student Leads</h2>
+              <div className="divider" />
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {studentLeads.map((member) => (
                 <MemberCard
@@ -117,7 +124,7 @@ const Committee = () => {
                   name={member.name}
                   role={member.role}
                   initials={member.initials}
-                  gradient="from-purple-500 to-pink-500"
+                  bgColor="bg-slate-600"
                 />
               ))}
             </div>
@@ -125,17 +132,17 @@ const Committee = () => {
         </section>
 
         {/* Join CTA */}
-        <section className="py-16">
+        <section className="py-16 bg-muted">
           <div className="section-container text-center">
-            <div className="glass-card p-12 max-w-2xl mx-auto">
-              <h2 className="font-display text-2xl font-bold mb-4">
+            <div className="card-elevated p-12 max-w-2xl mx-auto">
+              <h2 className="font-display text-2xl font-semibold mb-4 text-foreground">
                 Want to Join the Team?
               </h2>
               <p className="text-muted-foreground mb-6">
                 We're always looking for passionate volunteers to help make Persona Fest even better.
               </p>
               <a href="/contact" className="btn-primary inline-block">
-                <span>Get in Touch</span>
+                Get in Touch
               </a>
             </div>
           </div>

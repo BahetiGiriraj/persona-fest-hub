@@ -25,30 +25,27 @@ const highlights = [
 
 const ExperienceHighlights = () => {
   return (
-    <section className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      
-      <div className="relative section-container">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            Experience the <span className="gradient-text-accent">Magic</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+    <section className="py-20 bg-muted">
+      <div className="section-container">
+        <div className="section-header">
+          <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Highlights</p>
+          <h2 className="section-title">Experience the Best</h2>
+          <p className="section-subtitle">
             More than a festival – it's a journey of discovery, connection, and unforgettable moments.
           </p>
+          <div className="divider" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {highlights.map((item, index) => (
+          {highlights.map((item) => (
             <div 
               key={item.title} 
-              className="glass-card p-8 text-center group hover:bg-primary/5 transition-all duration-500"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="card-professional p-8 text-center group hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                <item.icon className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                <item.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="font-display font-semibold text-lg mb-3">{item.title}</h3>
+              <h3 className="font-display font-semibold text-lg mb-3 text-foreground">{item.title}</h3>
               <p className="text-muted-foreground text-sm">{item.description}</p>
             </div>
           ))}

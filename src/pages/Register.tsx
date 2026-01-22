@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
-import { User, Users, Eye, ArrowRight, CheckCircle2, CircleDot } from "lucide-react";
+import { User, Users, Eye, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const participationTypes = [
   {
@@ -39,80 +38,70 @@ const Register = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24">
+      <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 animated-gradient-bg opacity-30" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
-          
+        <section className="py-20 bg-primary relative">
+          <div className="absolute inset-0 opacity-5 pattern-dots" />
           <div className="relative section-container text-center">
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              Register for <span className="gradient-text">Persona 2026</span>
+            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4 text-white">
+              Register for Persona 2026
             </h1>
-            <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-8">
+            <p className="text-lg text-white/80 max-w-xl mx-auto mb-8">
               Secure your spot at India's premier techno-cultural festival
             </p>
-            <a 
-              href="#register-form" 
-              className="btn-primary glow-primary inline-flex items-center gap-2"
-            >
-              <span>Start Registration</span>
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            <div className="w-20 h-1 bg-accent mx-auto" />
           </div>
         </section>
 
         {/* Who Can Register */}
-        <section className="py-16">
-          <div className="section-container">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl font-bold mb-4">
-                Who Can <span className="gradient-text">Participate?</span>
-              </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
-                Persona Fest is open to students from all recognized universities and 
-                colleges across India. All you need is a valid student ID.
-              </p>
-            </div>
+        <section className="py-16 bg-white">
+          <div className="section-container text-center">
+            <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Eligibility</p>
+            <h2 className="section-title">Who Can Participate?</h2>
+            <p className="section-subtitle">
+              Persona Fest is open to students from all recognized universities and 
+              colleges across India. All you need is a valid student ID.
+            </p>
+            <div className="divider" />
           </div>
         </section>
 
         {/* Participation Types */}
-        <section className="py-16 bg-card/30">
+        <section className="py-16 bg-muted">
           <div className="section-container">
-            <h2 className="font-display text-3xl font-bold text-center mb-12">
-              Choose Your <span className="gradient-text">Participation Type</span>
-            </h2>
+            <div className="section-header">
+              <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Options</p>
+              <h2 className="section-title">Choose Your Participation Type</h2>
+              <div className="divider" />
+            </div>
             
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {participationTypes.map((type) => (
                 <div 
                   key={type.title} 
-                  className={`glass-card p-8 relative transition-all duration-500 hover:scale-105 ${
-                    type.popular ? 'border-primary/50' : ''
+                  className={`card-elevated p-8 relative transition-all duration-300 hover:shadow-xl ${
+                    type.popular ? 'ring-2 ring-accent' : ''
                   }`}
                 >
                   {type.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-secondary rounded-full text-xs font-semibold text-primary-foreground">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-white rounded-full text-xs font-semibold">
                       Most Popular
                     </div>
                   )}
                   
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${
-                    type.popular 
-                      ? 'bg-gradient-to-br from-primary to-secondary' 
-                      : 'bg-muted'
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center mb-6 ${
+                    type.popular ? 'bg-accent' : 'bg-primary/10'
                   }`}>
-                    <type.icon className={`w-7 h-7 ${type.popular ? 'text-primary-foreground' : 'text-foreground'}`} />
+                    <type.icon className={`w-7 h-7 ${type.popular ? 'text-white' : 'text-primary'}`} />
                   </div>
                   
-                  <h3 className="font-display text-xl font-semibold mb-2">{type.title}</h3>
+                  <h3 className="font-display text-xl font-semibold mb-2 text-foreground">{type.title}</h3>
                   <p className="text-muted-foreground text-sm mb-6">{type.description}</p>
                   
                   <ul className="space-y-3">
                     {type.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
                         <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
@@ -124,25 +113,27 @@ const Register = () => {
         </section>
 
         {/* Registration Steps */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="section-container">
-            <h2 className="font-display text-3xl font-bold text-center mb-16">
-              Registration <span className="gradient-text">Process</span>
-            </h2>
+            <div className="section-header">
+              <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">How It Works</p>
+              <h2 className="section-title">Registration Process</h2>
+              <div className="divider" />
+            </div>
             
             <div className="max-w-3xl mx-auto">
               {steps.map((item, index) => (
                 <div key={item.step} className="flex gap-6 mb-8 last:mb-0">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-display font-bold text-primary-foreground">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center font-display font-bold text-white">
                       {item.step}
                     </div>
                     {index < steps.length - 1 && (
-                      <div className="w-0.5 h-16 bg-gradient-to-b from-primary/50 to-transparent mt-2" />
+                      <div className="w-0.5 h-16 bg-border mt-2" />
                     )}
                   </div>
                   <div className="pt-2">
-                    <h3 className="font-display font-semibold text-lg mb-1">{item.title}</h3>
+                    <h3 className="font-display font-semibold text-lg mb-1 text-foreground">{item.title}</h3>
                     <p className="text-muted-foreground">{item.description}</p>
                   </div>
                 </div>
@@ -152,26 +143,25 @@ const Register = () => {
         </section>
 
         {/* CTA Section */}
-        <section id="register-form" className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 animated-gradient-bg opacity-30" />
-          
+        <section className="py-20 bg-primary relative">
+          <div className="absolute inset-0 opacity-5 pattern-dots" />
           <div className="relative section-container text-center max-w-2xl">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-              Ready to <span className="gradient-text">Join Us?</span>
+            <h2 className="font-display text-3xl font-semibold mb-4 text-white">
+              Ready to Join Us?
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-white/80 mb-8">
               Registration opens soon. Leave your email to be notified when registrations go live.
             </p>
             
-            <div className="glass-card p-8">
+            <div className="bg-white rounded-lg p-8 shadow-lg">
               <div className="flex flex-col sm:flex-row gap-4">
                 <input 
                   type="email" 
                   placeholder="Enter your email address"
-                  className="flex-1 px-6 py-4 rounded-xl bg-muted border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="flex-1 px-4 py-3 rounded-md border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
                 <button className="btn-primary whitespace-nowrap">
-                  <span>Notify Me</span>
+                  Notify Me
                 </button>
               </div>
               <p className="text-muted-foreground text-sm mt-4">

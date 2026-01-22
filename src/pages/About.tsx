@@ -7,28 +7,31 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24">
+      <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 animated-gradient-bg opacity-30" />
+        <section className="py-20 bg-primary relative">
+          <div className="absolute inset-0 opacity-5 pattern-dots" />
           <div className="relative section-container text-center">
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              About <span className="gradient-text">Persona Fest</span>
+            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4 text-white">
+              About Persona Fest
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               India's most anticipated techno-cultural festival, uniting innovation and artistry.
             </p>
+            <div className="w-20 h-1 bg-accent mx-auto mt-6" />
           </div>
         </section>
 
         {/* What is Persona */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="section-container">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
-                <h2 className="font-display text-3xl md:text-4xl font-bold">
-                  What is <span className="gradient-text">Persona Fest?</span>
+                <p className="text-sm font-semibold text-accent uppercase tracking-widest">Our Story</p>
+                <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground">
+                  What is Persona Fest?
                 </h2>
+                <div className="w-16 h-1 bg-primary" />
                 <p className="text-muted-foreground leading-relaxed">
                   Persona Fest is the flagship techno-cultural extravaganza of MIT ADT University, 
                   Pune. Since its inception, it has grown to become one of India's largest college 
@@ -41,31 +44,31 @@ const About = () => {
                   cutting-edge tech exhibitions – Persona Fest has it all.
                 </p>
               </div>
-              <div className="glass-card p-8 space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+              <div className="space-y-6">
+                <div className="card-professional p-6 flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Building2 className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold mb-2">National Recognition</h3>
+                    <h3 className="font-display font-semibold mb-2 text-foreground">National Recognition</h3>
                     <p className="text-muted-foreground text-sm">Ranked among India's top 10 college festivals</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-6 h-6 text-secondary" />
+                <div className="card-professional p-6 flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold mb-2">Academic Excellence</h3>
+                    <h3 className="font-display font-semibold mb-2 text-foreground">Academic Excellence</h3>
                     <p className="text-muted-foreground text-sm">Backed by MIT ADT University's legacy</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-accent" />
+                <div className="card-professional p-6 flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Users className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold mb-2">Student-Driven</h3>
+                    <h3 className="font-display font-semibold mb-2 text-foreground">Student-Driven</h3>
                     <p className="text-muted-foreground text-sm">Organized by 500+ passionate student volunteers</p>
                   </div>
                 </div>
@@ -75,22 +78,24 @@ const About = () => {
         </section>
 
         {/* Leadership Messages */}
-        <section className="py-20 bg-card/50">
+        <section className="py-20 bg-muted">
           <div className="section-container">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-16">
-              Messages from <span className="gradient-text">Leadership</span>
-            </h2>
+            <div className="section-header">
+              <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Leadership</p>
+              <h2 className="section-title">Messages from Leadership</h2>
+              <div className="divider" />
+            </div>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {/* Founder's Message */}
-              <div className="glass-card p-8 relative">
-                <Quote className="absolute top-6 right-6 w-12 h-12 text-primary/20" />
+              <div className="card-elevated p-8 relative">
+                <Quote className="absolute top-6 right-6 w-10 h-10 text-muted/30" />
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <span className="font-display font-bold text-xl text-primary-foreground">VK</span>
+                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+                    <span className="font-display font-bold text-xl text-white">VK</span>
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold">Dr. Vishwanath Karad</h3>
+                    <h3 className="font-display font-semibold text-foreground">Dr. Vishwanath Karad</h3>
                     <p className="text-muted-foreground text-sm">Founder, MIT Group of Institutions</p>
                   </div>
                 </div>
@@ -102,14 +107,14 @@ const About = () => {
               </div>
 
               {/* VC's Message */}
-              <div className="glass-card p-8 relative">
-                <Quote className="absolute top-6 right-6 w-12 h-12 text-secondary/20" />
+              <div className="card-elevated p-8 relative">
+                <Quote className="absolute top-6 right-6 w-10 h-10 text-muted/30" />
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
-                    <span className="font-display font-bold text-xl text-secondary-foreground">VC</span>
+                  <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center">
+                    <span className="font-display font-bold text-xl text-white">SK</span>
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold">Dr. Sunita Karad</h3>
+                    <h3 className="font-display font-semibold text-foreground">Dr. Sunita Karad</h3>
                     <p className="text-muted-foreground text-sm">Vice Chancellor, MIT ADT University</p>
                   </div>
                 </div>
@@ -124,19 +129,19 @@ const About = () => {
         </section>
 
         {/* Campus */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="section-container text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-              World-Class <span className="gradient-text">Infrastructure</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
+            <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Venue</p>
+            <h2 className="section-title">World-Class Infrastructure</h2>
+            <p className="section-subtitle mb-6">
               MIT ADT University's sprawling 100+ acre campus provides the perfect 
               backdrop for Persona Fest, with state-of-the-art venues and facilities.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="divider mb-12" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {["Main Arena", "Tech Hub", "Cultural Center", "Open Grounds"].map((venue) => (
-                <div key={venue} className="glass-card p-6 text-center">
-                  <p className="font-display font-semibold">{venue}</p>
+                <div key={venue} className="card-professional p-6 text-center">
+                  <p className="font-display font-semibold text-foreground">{venue}</p>
                 </div>
               ))}
             </div>

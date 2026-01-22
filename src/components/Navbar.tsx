@@ -10,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,19 +33,22 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-nav py-3" : "bg-transparent py-5"
+        isScrolled ? "nav-professional shadow-sm" : "bg-white"
       }`}
     >
       <div className="section-container">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-display font-bold text-primary-foreground text-lg transition-transform group-hover:scale-110">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded bg-primary flex items-center justify-center font-display font-bold text-primary-foreground text-lg">
               P
             </div>
-            <span className="font-display font-bold text-xl hidden sm:block">
-              PERSONA <span className="gradient-text">2026</span>
-            </span>
+            <div className="hidden sm:block">
+              <span className="font-display font-semibold text-lg text-foreground">
+                PERSONA FEST
+              </span>
+              <span className="text-xs text-muted-foreground block -mt-1">2026</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -54,15 +57,15 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-md font-medium text-sm transition-all duration-200 ${
                   link.highlight
-                    ? "btn-primary text-sm !px-6 !py-2.5"
+                    ? "btn-primary !py-2 !px-5"
                     : isActive(link.path)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
-                {link.highlight ? <span>{link.name}</span> : link.name}
+                {link.name}
               </Link>
             ))}
 
@@ -72,17 +75,17 @@ const Navbar = () => {
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <button className="flex items-center gap-1 px-4 py-2 rounded-lg font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300">
+              <button className="flex items-center gap-1 px-4 py-2 rounded-md font-medium text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200">
                 More
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-300 ${
+                  className={`w-4 h-4 transition-transform duration-200 ${
                     isDropdownOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
               <div
-                className={`absolute top-full right-0 mt-2 w-48 glass-card overflow-hidden transition-all duration-300 origin-top ${
+                className={`absolute top-full right-0 mt-1 w-48 bg-white border border-border rounded-md shadow-lg overflow-hidden transition-all duration-200 origin-top ${
                   isDropdownOpen
                     ? "opacity-100 scale-100"
                     : "opacity-0 scale-95 pointer-events-none"
@@ -92,10 +95,10 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`block px-4 py-3 transition-colors ${
+                    className={`block px-4 py-3 text-sm transition-colors ${
                       isActive(link.path)
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                        ? "text-primary bg-primary/5"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
                     }`}
                   >
                     {link.name}
@@ -107,13 +110,13 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-muted transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6 text-foreground" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 text-foreground" />
             )}
           </button>
         </div>
@@ -121,24 +124,24 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           className={`md:hidden transition-all duration-300 overflow-hidden ${
-            isMobileMenuOpen ? "max-h-96 mt-4" : "max-h-0"
+            isMobileMenuOpen ? "max-h-96 pb-4" : "max-h-0"
           }`}
         >
-          <div className="glass-card p-4 space-y-2">
+          <div className="space-y-1 pt-2 border-t border-border">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-3 rounded-lg font-medium transition-all ${
+                className={`block px-4 py-3 rounded-md font-medium text-sm transition-all ${
                   link.highlight
-                    ? "btn-primary text-center"
+                    ? "btn-primary text-center mt-2"
                     : isActive(link.path)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
-                {link.highlight ? <span>{link.name}</span> : link.name}
+                {link.name}
               </Link>
             ))}
             {dropdownLinks.map((link) => (
@@ -146,10 +149,10 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-3 rounded-lg font-medium transition-all ${
+                className={`block px-4 py-3 rounded-md font-medium text-sm transition-all ${
                   isActive(link.path)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
                 {link.name}
