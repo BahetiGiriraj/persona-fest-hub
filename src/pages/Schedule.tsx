@@ -46,12 +46,12 @@ const scheduleData = {
 };
 
 const categoryColors: Record<string, string> = {
-  cultural: "bg-pink-500/20 text-pink-400 border-pink-500/30",
-  technical: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-  design: "bg-purple-500/20 text-purple-400 border-purple-500/30",
-  management: "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  foodtech: "bg-green-500/20 text-green-400 border-green-500/30",
-  manet: "bg-red-500/20 text-red-400 border-red-500/30",
+  cultural: "bg-rose-100 text-rose-700 border-rose-200",
+  technical: "bg-blue-100 text-blue-700 border-blue-200",
+  design: "bg-purple-100 text-purple-700 border-purple-200",
+  management: "bg-amber-100 text-amber-700 border-amber-200",
+  foodtech: "bg-green-100 text-green-700 border-green-200",
+  manet: "bg-red-100 text-red-700 border-red-200",
 };
 
 const Schedule = () => {
@@ -62,32 +62,33 @@ const Schedule = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-24">
+      <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 animated-gradient-bg opacity-30" />
+        <section className="py-20 bg-primary relative">
+          <div className="absolute inset-0 opacity-5 pattern-dots" />
           <div className="relative section-container text-center">
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              Event <span className="gradient-text">Schedule</span>
+            <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4 text-white">
+              Event Schedule
             </h1>
-            <p className="text-xl text-muted-foreground max-w-xl mx-auto">
+            <p className="text-lg text-white/80 max-w-xl mx-auto">
               Three days of non-stop action. Plan your Persona experience.
             </p>
+            <div className="w-20 h-1 bg-accent mx-auto mt-6" />
           </div>
         </section>
 
         {/* Day Tabs */}
-        <section className="py-8 sticky top-16 z-40 glass-nav">
+        <section className="py-8 sticky top-16 md:top-20 z-40 bg-white border-b border-border">
           <div className="section-container">
             <div className="flex justify-center gap-2 md:gap-4">
               {(["day1", "day2", "day3"] as const).map((day) => (
                 <button
                   key={day}
                   onClick={() => setActiveDay(day)}
-                  className={`px-6 py-3 rounded-xl font-display font-semibold transition-all duration-300 ${
+                  className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 ${
                     activeDay === day
-                      ? "bg-gradient-to-r from-primary to-secondary text-primary-foreground"
-                      : "glass-card hover:bg-muted/50"
+                      ? "bg-primary text-white"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
                 >
                   <span className="hidden sm:inline">{scheduleData[day].title}</span>
@@ -99,10 +100,10 @@ const Schedule = () => {
         </section>
 
         {/* Schedule Content */}
-        <section className="py-12">
+        <section className="py-12 bg-muted">
           <div className="section-container max-w-4xl">
             <div className="text-center mb-12">
-              <h2 className="font-display text-2xl font-bold">{schedule.title}</h2>
+              <h2 className="font-display text-2xl font-semibold text-foreground">{schedule.title}</h2>
               <p className="text-muted-foreground">{schedule.date}</p>
             </div>
 
@@ -110,19 +111,19 @@ const Schedule = () => {
               {schedule.events.map((event, index) => (
                 <div 
                   key={index}
-                  className="glass-card p-6 flex flex-col md:flex-row md:items-center gap-4 hover:scale-[1.02] transition-transform duration-300"
+                  className="card-elevated p-6 flex flex-col md:flex-row md:items-center gap-4 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex items-center gap-4 md:w-32 flex-shrink-0">
                     <Clock className="w-5 h-5 text-primary" />
-                    <span className="font-display font-semibold">{event.time}</span>
+                    <span className="font-semibold text-foreground">{event.time}</span>
                   </div>
                   
                   <div className="flex-1">
-                    <h3 className="font-display font-semibold text-lg mb-1">{event.title}</h3>
+                    <h3 className="font-display font-semibold text-lg mb-1 text-foreground">{event.title}</h3>
                     <div className="flex items-center gap-2 text-muted-foreground text-sm">
                       <MapPin className="w-4 h-4" />
                       <span>{event.venue}</span>
-                      <span className="text-muted">•</span>
+                      <span>•</span>
                       <span>{event.duration}</span>
                     </div>
                   </div>
@@ -137,9 +138,9 @@ const Schedule = () => {
         </section>
 
         {/* Legend */}
-        <section className="py-12">
+        <section className="py-12 bg-white">
           <div className="section-container max-w-4xl">
-            <h3 className="font-display font-semibold mb-4 text-center">Event Categories</h3>
+            <h3 className="font-display font-semibold mb-4 text-center text-foreground">Event Categories</h3>
             <div className="flex flex-wrap justify-center gap-3">
               {Object.entries(categoryColors).map(([category, colors]) => (
                 <span key={category} className={`px-4 py-2 rounded-full text-sm border ${colors}`}>

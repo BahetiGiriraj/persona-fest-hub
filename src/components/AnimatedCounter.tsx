@@ -38,7 +38,6 @@ const AnimatedCounter = ({ end, suffix = "", duration = 2000 }: AnimatedCounterP
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       setCount(Math.floor(easeOutQuart * end));
 
@@ -53,8 +52,8 @@ const AnimatedCounter = ({ end, suffix = "", duration = 2000 }: AnimatedCounterP
   }, [isVisible, end, duration]);
 
   return (
-    <div ref={ref} className="stat-card">
-      <div className="stat-number">
+    <div ref={ref} className="stat-professional">
+      <div className="stat-number-professional">
         {count.toLocaleString()}{suffix}
       </div>
     </div>

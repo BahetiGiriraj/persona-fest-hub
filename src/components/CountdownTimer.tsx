@@ -41,21 +41,21 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="flex gap-4 md:gap-6">
+    <div className="flex gap-3 md:gap-6">
       {timeLeft.map((unit, index) => (
-        <div key={unit.label} className="flex items-center gap-4 md:gap-6">
+        <div key={unit.label} className="flex items-center gap-3 md:gap-6">
           <div className="text-center">
-            <div className="glass-card px-4 py-3 md:px-6 md:py-4 min-w-[70px] md:min-w-[90px]">
-              <span className="font-display text-2xl md:text-4xl font-bold gradient-text">
+            <div className="bg-white rounded-lg px-4 py-3 md:px-6 md:py-4 min-w-[60px] md:min-w-[80px] shadow-sm">
+              <span className="font-display text-2xl md:text-4xl font-bold text-primary">
                 {String(unit.value).padStart(2, "0")}
               </span>
             </div>
-            <span className="text-muted-foreground text-xs md:text-sm uppercase tracking-wider mt-2 block">
+            <span className="text-white/80 text-xs md:text-sm uppercase tracking-wider mt-2 block">
               {unit.label}
             </span>
           </div>
           {index < timeLeft.length - 1 && (
-            <span className="text-muted-foreground text-2xl md:text-4xl font-light hidden sm:block">
+            <span className="text-white/60 text-2xl md:text-3xl font-light hidden sm:block">
               :
             </span>
           )}
