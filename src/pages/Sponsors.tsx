@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Download, Mail, TrendingUp, Users, Eye, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const impactStats = [
   { icon: Users, value: "50,000+", label: "Student Footfall" },
@@ -55,11 +56,13 @@ const Sponsors = () => {
               <div className="space-y-6 md:justify-self-end max-w-sm">
 
                 {/* Download Button */}
-                <a
-                  href="/PERSONA_sponsorship-deck.pdf"
-                  download
-                  className="w-full px-8 py-4 bg-accent text-white rounded-md font-semibold hover:bg-accent/90 transition-colors inline-flex items-center justify-center gap-2"
-                >
+               <a
+  href="/PERSONA_sponsorship-deck.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full px-8 py-4 bg-accent text-white rounded-md font-semibold hover:bg-accent/90 transition-colors inline-flex items-center justify-center gap-2"
+>
+
                   <Download className="w-5 h-5" />
                   Download Sponsorship Deck
                 </a>
@@ -70,13 +73,14 @@ const Sponsors = () => {
                     For customized partnership opportunities or further discussion,
                     our team would be happy to connect.
                   </p>
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center gap-2 text-accent font-medium hover:underline"
-                  >
-                    <Mail className="w-4 h-4" />
-                    Contact Us
-                  </a>
+                  <Link
+  to="/contact"
+  className="inline-flex items-center gap-2 text-accent font-medium hover:underline"
+>
+  <Mail className="w-4 h-4" />
+  Contact Us
+</Link>
+
                 </div>
 
               </div>

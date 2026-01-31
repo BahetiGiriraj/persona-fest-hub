@@ -76,7 +76,7 @@ const Contact = () => {
 
                   <div className="flex gap-3">
                     <Mail className="w-5 h-5 mt-1" />
-                    <p>studentsuccess@mituniversity.edu.in</p>
+                    <p>student.success@mituniversity.edu.in</p>
                   </div>
 
                   <div className="flex gap-3">
