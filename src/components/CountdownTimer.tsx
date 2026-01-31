@@ -50,7 +50,8 @@ const CountdownTimer = () => {
                 {String(unit.value).padStart(2, "0")}
               </span>
             </div>
-            <span className="text-white/80 text-xs md:text-sm uppercase tracking-wider mt-2 block">
+            <span className="text-gray-700
+ text-xs md:text-sm uppercase tracking-wider mt-2 block">
               {unit.label}
             </span>
           </div>

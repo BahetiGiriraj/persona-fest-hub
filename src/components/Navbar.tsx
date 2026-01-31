@@ -28,7 +28,7 @@ const Navbar = () => {
     { name: "Committee", path: "/committee" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav
@@ -38,20 +38,23 @@ const Navbar = () => {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded bg-primary flex items-center justify-center font-display font-bold text-primary-foreground text-lg">
-              P
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-display font-semibold text-lg text-foreground">
-                PERSONA FEST
-              </span>
-              <span className="text-xs text-muted-foreground block -mt-1">2026</span>
-            </div>
+
+          {/* LOGOS */}
+          <Link to="/" className="flex items-center gap-5">
+            <img
+              src="/MITLogo.png"
+              alt="MIT ADT Logo"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
+
+            <img
+              src="/OSALogo-main.png"
+              alt="OSA Logo"
+              className="h-8 md:h-10 w-auto object-contain"
+            />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* DESKTOP NAVIGATION */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -69,7 +72,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Dropdown */}
+            {/* DROPDOWN */}
             <div
               className="relative"
               onMouseEnter={() => setIsDropdownOpen(true)}
@@ -108,7 +111,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE MENU BUTTON */}
           <button
             className="md:hidden p-2 rounded-md hover:bg-muted transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -121,7 +124,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* MOBILE MENU */}
         <div
           className={`md:hidden transition-all duration-300 overflow-hidden ${
             isMobileMenuOpen ? "max-h-96 pb-4" : "max-h-0"
@@ -144,6 +147,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+
             {dropdownLinks.map((link) => (
               <Link
                 key={link.name}

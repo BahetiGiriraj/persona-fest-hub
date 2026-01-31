@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Twitter, Linkedin, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Youtube, Facebook, MapPin } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
@@ -12,42 +12,56 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/mitadtpersonafest/?igsh=bnFlMDRweDZ0ZHp1",
+      label: "Instagram",
+    },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/mitpersonafest",
+      label: "Facebook",
+    },
+    {
+      icon: Youtube,
+      href: "https://www.youtube.com/watch?v=dqMmMN8PXw8",
+      label: "YouTube",
+    },
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="section-container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded bg-white flex items-center justify-center font-display font-bold text-primary text-lg">
-                P
-              </div>
-              <div>
-                <span className="font-display font-semibold text-lg block">PERSONA FEST</span>
-                <span className="text-xs text-primary-foreground/70">2026</span>
-              </div>
-            </Link>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              MIT ADT University's flagship techno-cultural festival. 
-              Three days of innovation, creativity, and celebration.
-            </p>
-          </div>
+    <footer className="bg-white border-t border-gray-200">
+      <div className="section-container py-14">
 
-          {/* Quick Links */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          {/* BRAND */}
+          <div className="space-y-4">
+  <Link to="/" className="inline-block">
+    <img
+      src={"/logo2.png"}
+      alt="Persona Fest Logo"
+      className="h-14 w-auto object-contain"
+    />
+  </Link>
+
+  <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
+    Persona Fest is the flagship techno-cultural festival of MIT ADT University,
+    bringing together culture, innovation, and academic excellence.
+  </p>
+</div>
+
+          {/* QUICK LINKS */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Quick Links</h4>
+            <h4 className="font-display font-semibold text-gray-900 mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
+                    className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -56,57 +70,66 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-primary-foreground/80 text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>MIT ADT University, Loni Kalbhor, Pune, Maharashtra 412201</span>
-              </li>
-              <li className="flex items-center gap-3 text-primary-foreground/80 text-sm">
-                <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:persona@mituniversity.edu.in" className="hover:text-primary-foreground transition-colors">
-                  persona@mituniversity.edu.in
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-primary-foreground/80 text-sm">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-primary-foreground transition-colors">
-                  +91 98765 43210
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* LOCATION & SOCIAL */}
+          <div className="space-y-4">
+            <h4 className="font-display font-semibold text-gray-900">
+              Connect With Us
+            </h4>
 
-          {/* Social */}
-          <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Follow Us</h4>
-            <div className="flex gap-3">
+            <div className="flex items-start gap-3 text-gray-600 text-sm">
+              <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              <span>
+                MIT ADT University, Loni Kalbhor, Pune, Maharashtra 412201
+              </span>
+            </div>
+
+            <div className="flex gap-3 pt-2">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-primary-foreground hover:bg-white hover:text-primary transition-all duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-md border border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
           </div>
+
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-primary-foreground/70 text-sm">
+        {/* BOTTOM BAR */}
+        <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-600 text-sm">
             © Persona Fest 2026 – MIT ADT University. All rights reserved.
           </p>
-          <p className="text-primary-foreground/70 text-sm">
+          <p className="text-gray-600 text-sm">
             19–21 February 2026 • Pune, India
           </p>
         </div>
+        {/* MADE BY */}
+        <div className="mt-4 text-center">
+          <p className="text-xs text-gray-500">
+            Made by <span className="font-medium text-gray-700">
+              Technology Cluster Secretary of IMPACT Student Council – Giriraj Baheti
+            </span>{" "}
+            •{" "}
+            <a
+              href="https://www.linkedin.com/in/giriraj-baheti-899ab5211"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              LinkedIn
+            </a>
+          </p>
+        </div>
+
       </div>
+  
     </footer>
   );
 };

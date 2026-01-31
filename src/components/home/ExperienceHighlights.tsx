@@ -4,52 +4,66 @@ const highlights = [
   {
     icon: Star,
     title: "Celebrity Performances",
-    description: "Witness electrifying performances by top artists",
+    description: "Curated performances by renowned artists and cultural icons.",
   },
   {
     icon: Zap,
     title: "Innovation Hub",
-    description: "Experience cutting-edge tech demonstrations",
+    description: "Showcasing emerging technologies, ideas, and student innovation.",
   },
   {
     icon: Heart,
     title: "Cultural Fusion",
-    description: "Celebrate diversity through art and tradition",
+    description: "A celebration of diversity through art, tradition, and expression.",
   },
   {
     icon: Rocket,
     title: "Career Connect",
-    description: "Network with industry leaders and recruiters",
+    description: "Opportunities to engage with industry leaders and professionals.",
   },
 ];
 
 const ExperienceHighlights = () => {
   return (
-    <section className="py-20 bg-muted">
+    <section className="py-20 bg-white border-t border-gray-200">
       <div className="section-container">
-        <div className="section-header">
-          <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Highlights</p>
-          <h2 className="section-title">Experience the Best</h2>
-          <p className="section-subtitle">
-            More than a festival – it's a journey of discovery, connection, and unforgettable moments.
+
+        {/* Section Header */}
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">
+            Highlights
           </p>
-          <div className="divider" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+            Experience the Best of Persona Fest
+          </h2>
+          <p className="text-lg text-gray-600">
+            Thoughtfully designed experiences that bring together culture,
+            technology, and meaningful connections.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Highlights Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {highlights.map((item) => (
-            <div 
-              key={item.title} 
-              className="card-professional p-8 text-center group hover:shadow-lg transition-all duration-300"
+            <div
+              key={item.title}
+              className="border border-gray-200 rounded-lg p-8 bg-white"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                <item.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300" />
+              <div className="w-10 h-10 mb-4 flex items-center justify-center rounded-md bg-gray-100">
+                <item.icon className="w-5 h-5 text-gray-700" />
               </div>
-              <h3 className="font-display font-semibold text-lg mb-3 text-foreground">{item.title}</h3>
-              <p className="text-muted-foreground text-sm">{item.description}</p>
+
+              <h3 className="font-display font-semibold text-lg text-gray-900 mb-2">
+                {item.title}
+              </h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

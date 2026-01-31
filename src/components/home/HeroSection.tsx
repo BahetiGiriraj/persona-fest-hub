@@ -4,69 +4,83 @@ import { MapPin, Calendar } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with overlay */}
-      <div className="absolute inset-0 bg-primary" />
-      <div className="absolute inset-0 hero-overlay" />
+    <section className="relative border-b border-gray-200 overflow-hidden">
       
-      {/* Subtle pattern */}
-      <div className="absolute inset-0 opacity-5 pattern-dots" />
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/Persona2026.png')" }}
+      />
 
-      <div className="relative z-10 section-container text-center py-32">
+      {/* White Overlay for readability */}
+      <div className="absolute inset-0 bg-white/90" />
+
+
+      <div className="relative section-container pt-32 md:pt-36 pb-20 text-center">
+
         {/* Pre-title */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
-          <span className="text-sm text-white/90">MIT ADT University Presents</span>
-        </div>
+        {/* <p className="text-sm text-gray-600 mb-4 tracking-wide">
+          MIT ADT University Presents
+        </p> */}
 
         {/* Main Title */}
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white">
-          PERSONA FEST
-        </h1>
-        <p className="font-display text-2xl md:text-3xl text-white/90 mb-2">2026</p>
+        
+      
+        <div className="flex flex-col items-center mb-10">
+  <img
+    src="/logohero.png"
+    alt="Persona Fest 2026"
+    className="h-36 md:h-48 lg:h-56 xl:h-64 max-w-[95%] w-auto object-contain mb-6"
+  />
+</div>
+
+
+
 
         {/* Tagline */}
-        <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl mx-auto">
-          Where Innovation Meets Excellence
+        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          A flagship techno-cultural celebration of innovation, creativity,
+          and academic excellence.
         </p>
 
-        {/* Divider */}
-        <div className="w-20 h-1 bg-accent mx-auto mb-8" />
-
         {/* Event Details */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 mb-12">
-          <div className="flex items-center gap-2 text-white/90">
-            <Calendar className="w-5 h-5" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 text-sm md:text-base text-gray-700">
+          <div className="flex items-center gap-2">
+            <Calendar className="w-4 h-4" />
             <span>19–21 February 2026</span>
           </div>
-          <div className="hidden sm:block w-1 h-1 rounded-full bg-white/50" />
-          <div className="flex items-center gap-2 text-white/90">
-            <MapPin className="w-5 h-5" />
+          <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-gray-400" />
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4" />
             <span>MIT ADT University, Pune</span>
           </div>
         </div>
 
         {/* Countdown */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-10">
           <CountdownTimer />
         </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link to="/register" className="btn-accent px-8 py-4 text-lg">
+          <Link
+            to="/register"
+            className="px-8 py-3 text-base font-semibold rounded-md bg-accent text-white hover:bg-accent/90 transition-colors"
+          >
             Register Now
           </Link>
-          <Link to="/about" className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-md hover:bg-white/10 transition-colors">
+
+          <Link
+            to="/about"
+            className="px-8 py-3 text-base font-medium text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+          >
             Learn More
           </Link>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
-          <div className="w-1 h-2 rounded-full bg-white/60 animate-pulse" />
-        </div>
-      </div>
+      {/* Bottom spacing to show more content */}
+      <div className="relative h-12 bg-white" />
     </section>
   );
 };

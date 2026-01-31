@@ -5,37 +5,31 @@ const categories = [
     icon: Music,
     name: "Cultural",
     description: "Dance, music, drama, and artistic performances",
-    events: ["Battle of Bands", "Dance Wars", "Nukkad Natak", "Poetry Slam"]
   },
   {
     icon: Code,
     name: "Technical",
-    description: "Hackathons, coding battles, and tech challenges",
-    events: ["CodeCraft", "HackNova", "RoboRace", "CTF Challenge"]
+    description: "Hackathons, coding challenges, and tech competitions",
   },
   {
     icon: Palette,
     name: "Design",
     description: "UI/UX, photography, and creative showcases",
-    events: ["Design Sprint", "Photo Walk", "Poster Making", "Digital Art"]
   },
   {
     icon: Briefcase,
     name: "Management",
     description: "Case studies, debates, and business simulations",
-    events: ["B-Plan", "Mock Stock", "Ad Wars", "Corporate Debate"]
   },
   {
     icon: UtensilsCrossed,
-    name: "Food-Tech",
-    description: "Culinary innovation and food science",
-    events: ["Chef's Table", "Food Tech Expo", "Recipe Remix", "Taste Trail"]
+    name: "Food Technology",
+    description: "Culinary innovation and food science events",
   },
   {
     icon: Radio,
     name: "MANET",
     description: "Media, animation, and entertainment technology",
-    events: ["Short Film Fest", "Animation Challenge", "VR Experience", "Podcast Wars"]
   },
 ];
 
@@ -43,35 +37,39 @@ const EventCategories = () => {
   return (
     <section className="py-20 bg-white">
       <div className="section-container">
-        <div className="section-header">
-          <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">Event Domains</p>
-          <h2 className="section-title">Explore Event Categories</h2>
-          <p className="section-subtitle">
-            Six domains, endless possibilities. Find your passion and compete with the best.
+        
+        {/* Section Header */}
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-2">
+            Event Domains
           </p>
-          <div className="divider" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+            Explore Event Categories
+          </h2>
+          <p className="text-lg text-gray-600">
+            Six focused domains designed to bring together creativity, technology,
+            and competitive excellence.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Categories Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category) => (
-            <div key={category.name} className="category-card-professional group">
-              <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                <category.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+            <div
+              key={category.name}
+              className="group border border-gray-200 rounded-lg p-8 hover:shadow-md transition-shadow bg-white"
+            >
+              <div className="w-12 h-12 rounded-md bg-gray-100 flex items-center justify-center mb-5">
+                <category.icon className="w-6 h-6 text-gray-700" />
               </div>
-              
-              <h3 className="font-display text-xl font-semibold mb-2 text-foreground">{category.name}</h3>
-              <p className="text-muted-foreground text-sm mb-6">{category.description}</p>
-              
-              <div className="flex flex-wrap gap-2">
-                {category.events.map((event) => (
-                  <span 
-                    key={event}
-                    className="px-3 py-1 text-xs rounded-full bg-muted text-muted-foreground"
-                  >
-                    {event}
-                  </span>
-                ))}
-              </div>
+
+              <h3 className="font-display text-xl font-semibold text-gray-900 mb-2">
+                {category.name}
+              </h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                {category.description}
+              </p>
             </div>
           ))}
         </div>
