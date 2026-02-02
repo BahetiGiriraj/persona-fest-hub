@@ -152,7 +152,7 @@ const Committee = () => {
                 <li>Shrikar Dehadray – Hospitality – 9130846644</li>
                 <li>Swapnil Patil – Social Media – 8623090877</li>
                 <li>Abhijeet Warudkar – Digital Marketing – 7558320143</li>
-                <li><strong>Giriraj Baheti</strong> – Technical Events – 9301728128</li>
+                <li>Giriraj Baheti – Technical Events – 9301728128</li>
                 <li>Darsh Buchale – Logistics – 9975832332</li>
                 <li>Neil Barapatre – Logistics – 7666738102</li>
               </ul>
